@@ -8,8 +8,7 @@ from sqlalchemy import engine_from_config, pool
 from app.config import get_settings
 from app.db.session import Base
 
-# Import models here as they are added in future phases
-# from app.models import user  # noqa: F401 — Phase 1+
+import app.models  # noqa: F401 — register all ORM models with Base.metadata
 
 config = context.config
 settings = get_settings()

@@ -16,7 +16,13 @@ redis==5.2.1
 # Security (Phase 1+)
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
 python-multipart==0.0.20
+email-validator==2.2.0
+
+# Static analysis (Phase 3+)
+bandit==1.8.0
+pip-audit==2.7.3
 
 # Logging
 structlog==24.4.0

@@ -10,6 +10,7 @@ from app.api.router import api_v1_router
 from app.config import get_settings
 from app.core.exceptions import register_exception_handlers
 from app.core.logging import get_logger, setup_logging
+from app.middleware.audit import AuditLogMiddleware
 
 logger = get_logger(__name__)
 
@@ -57,6 +58,9 @@ def create_app() -> FastAPI:
 
     # Exception handlers
     register_exception_handlers(app)
+
+    # Audit logging for mutating API requests
+    app.add_middleware(AuditLogMiddleware)
 
     # API routes
     app.include_router(api_v1_router, prefix=settings.api_v1_prefix)
